@@ -3,7 +3,7 @@ name: ✨ 기능 개발 / 작업 (Feature & Task)
 about: 새로운 기능 개발이나 일반적인 작업을 위한 템플릿입니다.
 title: "[Feat/Refactor] 작업 제목"
 labels: enhancement
-assignees: ''
+assignees: 'syureu'
 ---
 
 ## 🎯 목적 (Goal)
