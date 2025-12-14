@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Hex } from '@libs/common/src/hex';
+import { Hex } from '@libs/common';
 
 @Injectable()
 export class HexService {

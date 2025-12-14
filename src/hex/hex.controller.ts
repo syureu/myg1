@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param, Query } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Query, ParseIntPipe } from '@nestjs/common';
 import { HexService } from './hex.service';
 
 @Controller('hex')
@@ -13,10 +13,8 @@ export class HexController {
 
   // 특정 좌표의 인접 타일 조회
   @Get('neighbors')
-  getNeighbors(@Query('q') q: string, @Query('r') r: string) {
-    const qNum = parseInt(q, 10);
-    const rNum = parseInt(r, 10);
-    return this.hexService.getNeighbors(qNum, rNum);
+  getNeighbors(@Query('q', ParseIntPipe) q: number, @Query('r', ParseIntPipe) r: number) {
+    return this.hexService.getNeighbors(q, r);
   }
 
   // 두 좌표 간 거리 계산
