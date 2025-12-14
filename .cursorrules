@@ -1,0 +1,16 @@
+# Project Context
+이 프로젝트는 NestJS 기반의 턴제 전략 웹 게임입니다.
+육각형(Hexagon) 타일 맵(Axial Coordinate q, r)을 사용합니다.
+DB는 PostgreSQL을 사용하며 TypeORM/Prisma를 쓸 예정입니다.
+
+# Key Game Mechanics (반드시 준수할 것)
+1. **조직(Organization):** 그래프 구조이며 계층(Level)이 존재함. 순환 참조를 막기 위해 상위 레벨 조직이 하위 레벨 조직에 소속될 수 없음.
+2. **캐릭터(Character):** 유저는 '영혼(Soul)'을 가지며, 캐릭터는 영혼이 머무는 '육체'임. 캐릭터가 죽으면 영혼은 다른 캐릭터로 전이됨.
+3. **유닛(Unit):** 캐릭터가 탑승하는 개념. 유닛이 파괴되어도 캐릭터는 생존 가능.
+4. **턴 방식:** 라운드 로빈 방식의 순차 턴. 동시성 제어를 위해 낙관적 락(version check)을 필수 사용.
+5. **좌표계:** q, r 축을 사용하는 Axial Coordinate 시스템.
+
+# Coding Style
+- NestJS의 Monorepo 구조(libs/apps)를 따를 것.
+- 모든 비즈니스 로직은 Service에 위치.
+- 커밋 메시지는 Conventional Commits 규칙을 준수할 것 (feat, fix, refactor 등).
