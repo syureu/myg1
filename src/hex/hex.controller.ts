@@ -20,16 +20,12 @@ export class HexController {
   // 두 좌표 간 거리 계산
   @Get('distance')
   getDistance(
-    @Query('q1') q1: string,
-    @Query('r1') r1: string,
-    @Query('q2') q2: string,
-    @Query('r2') r2: string,
+    @Query('q1', ParseIntPipe) q1: number,
+    @Query('r1', ParseIntPipe) r1: number,
+    @Query('q2', ParseIntPipe) q2: number,
+    @Query('r2', ParseIntPipe) r2: number,
   ) {
-    const q1Num = parseInt(q1, 10);
-    const r1Num = parseInt(r1, 10);
-    const q2Num = parseInt(q2, 10);
-    const r2Num = parseInt(r2, 10);
-    return this.hexService.getDistance(q1Num, r1Num, q2Num, r2Num);
+    return this.hexService.getDistance(q1, r1, q2, r2);
   }
 
   // POST 방식으로 좌표 전달하여 인접 타일 조회
