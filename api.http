@@ -1,0 +1,12 @@
+### 게임 상태 조회
+GET http://localhost:3000/game/status
+
+### 유닛 이동
+POST http://localhost:3000/game/move
+Content-Type: application/json
+
+{
+    "unitId": "unit_1",
+    "q": 2,
+    "r": 3
+}
