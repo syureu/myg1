@@ -10,3 +10,62 @@ Content-Type: application/json
     "q": 2,
     "r": 3
 }
+
+### ============================================
+### Hex Controller 테스트
+### ============================================
+
+### Hex 기본 테스트
+GET http://localhost:3000/hex/test
+
+### 인접 타일 조회 (GET - 쿼리 파라미터)
+GET http://localhost:3000/hex/neighbors?q=0&r=0
+
+### 인접 타일 조회 (다른 좌표)
+GET http://localhost:3000/hex/neighbors?q=2&r=1
+
+### 두 좌표 간 거리 계산 (GET - 쿼리 파라미터)
+GET http://localhost:3000/hex/distance?q1=0&r1=0&q2=2&r2=1
+
+### 두 좌표 간 거리 계산 (다른 좌표)
+GET http://localhost:3000/hex/distance?q1=0&r1=0&q2=3&r2=3
+
+### 인접 타일 조회 (POST - Body)
+POST http://localhost:3000/hex/neighbors
+Content-Type: application/json
+
+{
+    "q": 0,
+    "r": 0
+}
+
+### 인접 타일 조회 (POST - 다른 좌표)
+POST http://localhost:3000/hex/neighbors
+Content-Type: application/json
+
+{
+    "q": 1,
+    "r": -1
+}
+
+### 두 좌표 간 거리 계산 (POST - Body)
+POST http://localhost:3000/hex/distance
+Content-Type: application/json
+
+{
+    "q1": 0,
+    "r1": 0,
+    "q2": 2,
+    "r2": 1
+}
+
+### 두 좌표 간 거리 계산 (POST - 다른 좌표)
+POST http://localhost:3000/hex/distance
+Content-Type: application/json
+
+{
+    "q1": 0,
+    "r1": 0,
+    "q2": 3,
+    "r2": 3
+}

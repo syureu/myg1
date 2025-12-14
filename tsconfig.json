@@ -14,6 +14,9 @@
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
+    "paths": {
+      "@libs/common": ["libs/common/index"]
+    },
     "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": true,
