@@ -1,6 +1,7 @@
 // src/game/game.controller.ts
 import { Controller, Get, Post, Body, Param } from '@nestjs/common';
 import { GameService } from './game.service';
+import { MoveUnitDto } from './dto/move-unit.dto';
 
 @Controller('game')
 export class GameController {
@@ -14,8 +15,8 @@ export class GameController {
 
   // 유닛 이동 명령
   @Post('move')
-  moveUnit(@Body() body: { unitId: string; q: number; r: number }) {
-    return this.gameService.moveUnit(body.unitId, body.q, body.r);
+  moveUnit(@Body() moveUnitDto: MoveUnitDto) {
+    return this.gameService.moveUnit(moveUnitDto.unitId, moveUnitDto.q, moveUnitDto.r);
   }
   
   // 턴 종료
