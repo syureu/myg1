@@ -1,7 +1,7 @@
 ### 게임 상태 조회
 GET http://localhost:3000/game/status
 
-### 유닛 이동
+### 유닛 이동 (정상)
 POST http://localhost:3000/game/move
 Content-Type: application/json
 
@@ -9,6 +9,36 @@ Content-Type: application/json
     "unitId": "unit_1",
     "q": 2,
     "r": 3
+}
+
+### 유닛 이동 검증 테스트 - 타입 오류 (q에 문자열 전송)
+POST http://localhost:3000/game/move
+Content-Type: application/json
+
+{
+    "unitId": "unit_1",
+    "q": "abc",
+    "r": 3
+}
+
+### 유닛 이동 검증 테스트 - 누락 오류 (unitId 필드 누락)
+POST http://localhost:3000/game/move
+Content-Type: application/json
+
+{
+    "q": 2,
+    "r": 3
+}
+
+### 유닛 이동 검증 테스트 - 정의되지 않은 필드 (dummy 필드 추가)
+POST http://localhost:3000/game/move
+Content-Type: application/json
+
+{
+    "unitId": "unit_1",
+    "q": 2,
+    "r": 3,
+    "dummy": "test"
 }
 
 ### ============================================
